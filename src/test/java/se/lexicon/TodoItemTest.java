@@ -20,7 +20,7 @@ class TodoItemTest {
                 "Creator: Mike Smith, State: pending, in time, Deadline: 2025-02-15]";
 
         //Actual
-        String actual = todoItem.getSummary();
+        String actual = todoItem.toString();
 
         //verifying
         Assertions.assertEquals(actual,expected);
@@ -39,7 +39,7 @@ class TodoItemTest {
                 "Creator: Mike Smith, State: pending, in time, Deadline: 2025-02-15]";
 
         //Actual
-        String actual = todoItem.getSummary();
+        String actual = todoItem.toString();
 
         //verifying
         Assertions.assertEquals(actual,expected);
@@ -57,7 +57,7 @@ class TodoItemTest {
                 "Creator: Mike Smith, State: done, in time, Deadline: 2025-02-15]";
 
         //Actual
-        String actual = todoItem.getSummary();
+        String actual = todoItem.toString();
 
         //verifying
         Assertions.assertEquals(actual,expected);

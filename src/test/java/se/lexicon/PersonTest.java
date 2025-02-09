@@ -15,8 +15,8 @@ class PersonTest {
         String expected2 = "Person: [ID: 2, First name: Eva, Last name: Nilsson, email: e.n@example.com]";
 
         //Actual
-        String actual = mike.getSummary();
-        String actual2 = eva.getSummary();
+        String actual = mike.toString();
+        String actual2 = eva.toString();
 
         //verifying
         Assertions.assertEquals(actual,expected);

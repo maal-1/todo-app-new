@@ -21,7 +21,7 @@ class TodoItemTaskTest {
         String expected = "TodoItemTask: [ID: 1, Title: Return the books, State: assigned, assignee: Eva Nilsson]";
 
         //Actual
-        String actual = todoItemTask.getSummary();
+        String actual = todoItemTask.toString();
 
         //verifying
         Assertions.assertEquals(actual,expected);
@@ -39,7 +39,7 @@ class TodoItemTaskTest {
         String expected = "TodoItemTask: [ID: 1, Title: Return the books, State: not assigned, assignee: No assignee]";
 
         //Actual
-        String actual = todoItemTask.getSummary();
+        String actual = todoItemTask.toString();
 
         //verifying
         Assertions.assertEquals(actual,expected);
