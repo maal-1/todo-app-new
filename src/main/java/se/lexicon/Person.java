@@ -1,6 +1,7 @@
 package se.lexicon;
 
 import java.util.InputMismatchException;
+import java.util.Objects;
 
 public class Person {
 
@@ -75,4 +76,15 @@ public class Person {
                 + ", email: " + email + "]";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Person person)) return false;
+        return getId() == person.getId() && Objects.equals(getFirstName(), person.getFirstName())
+                && Objects.equals(getLastName(), person.getLastName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getFirstName(), getLastName());
+    }
 }
