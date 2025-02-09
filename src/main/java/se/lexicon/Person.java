@@ -11,6 +11,9 @@ public class Person {
     private String email;
 
 
+    private AppUser credentials;
+
+
     public Person(String firstName, String lastName) {
         setFirstName(firstName);
         setLastName(lastName);
@@ -58,8 +61,18 @@ public class Person {
         this.firstName = firstName;
     }
 
-    public String getSummary(){
-        return "Person: [ID: " + id + ", First name: " + firstName  + ", Last name: " + lastName
-            + ", email: " + email + "]";
+    private AppUser getCredentials() {
+        return credentials;
     }
+
+    private void setCredentials(AppUser credentials) {
+        this.credentials = credentials;
+    }
+
+    @Override
+    public String toString() {
+        return "Person: [ID: " + id + ", First name: " + firstName  + ", Last name: " + lastName
+                + ", email: " + email + "]";
+    }
+
 }
