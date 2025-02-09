@@ -2,6 +2,7 @@ package se.lexicon;
 
 import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
+import java.util.Objects;
 
 public class TodoItemTask {
 
@@ -55,11 +56,24 @@ public class TodoItemTask {
         return assignee;
     }
 
-    public String getSummary(){
+
+    @Override
+    public String toString() {
         String state = isAssigned() ? "assigned" : "not assigned";
         String assigneeState = (assignee == null) ? "No assignee" : assignee.getFirstName() + " " + assignee.getLastName();
 
         return "TodoItemTask: [ID: " + id + ", Title: " + todoItem.getTitle()  + ", State: " + state
                 + ", assignee: " + assigneeState + "]";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof TodoItemTask that)) return false;
+        return getId() == that.getId() && isAssigned() == that.isAssigned() && Objects.equals(getTodoItem(), that.getTodoItem());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), isAssigned(), getTodoItem());
     }
 }
