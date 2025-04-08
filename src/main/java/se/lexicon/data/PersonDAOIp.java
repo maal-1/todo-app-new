@@ -90,7 +90,21 @@ public class PersonDAOIp {
 
 
     public Person findById(int id) {
+        try (Statement statement = connection.createStatement();) {
 
+            String sql = "SELECT * FROM person WHERE person_id =" + id;
+            ResultSet result = statement.executeQuery(sql);
+
+            if (result.next()) {
+                return new Person(
+                        result.getInt("person_id"),
+                        result.getString("first_name"),
+                        result.getString("last_name")
+                );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         return null;
     }
 
