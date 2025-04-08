@@ -18,12 +18,12 @@ public class Person {
     public Person(String firstName, String lastName) {
         setFirstName(firstName);
         setLastName(lastName);
-        id = ++counter;
+//        id = ++counter;
     }
 
-    public Person(String firstName, String lastName, String email) {
+    public Person(int id, String firstName, String lastName) {
         this(firstName, lastName);
-        setEmail(email);
+        setId(id);
     }
 
     private static void validateName(String name) {
@@ -86,5 +86,10 @@ public class Person {
     @Override
     public int hashCode() {
         return Objects.hash(getId(), getFirstName(), getLastName());
+    }
+
+    public void setId(int id) {
+        if (id < 0) throw new InputMismatchException();
+        this.id = id;
     }
 }
